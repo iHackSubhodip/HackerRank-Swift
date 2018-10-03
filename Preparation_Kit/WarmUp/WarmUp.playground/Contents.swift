@@ -48,7 +48,7 @@ sockMerchant(n: 9, ar: [10, 20, 20, 10, 10, 30, 50, 10, 20])
  *
  * Problem Statement: Emma is playing a new mobile game that starts with consecutively numbered clouds. Some of the clouds are thunderheads and others are cumulus. She can jump on any cumulus cloud having a number that is equal to the number of the current cloud plus 1 or 2. She must avoid the thunderheads. Determine the minimum number of jumps it will take Emma to jump from her starting postion to the last cloud. It is always possible to win the game.
  *
- * Primary idea:
+ * Primary idea: Jump twice at a stretch and check if it's valid or not. Based on the validity increase position and count jumps.
  *
  * Input:
  *  7
@@ -79,7 +79,77 @@ func jumpingOnClouds(c: [Int]) -> Int {
 
 jumpingOnClouds(c: [0, 0, 0, 1, 0, 0])
 
+/**
+ * Question Link: https://www.hackerrank.com/challenges/repeated-string/
+ *
+ * Problem Statement: Lilah has a string, s, of lowercase English letters that she repeated infinitely many times.
+    Given an integer, n, find and print the number of letter a's in the first n letters of Lilah's infinite string.
+ *
+ * Input:
+ *  aba
+ *  10
+ *
+ * Output:
+ *   7
+ */
+
+func repeatedString(s: String, n: Int) -> Int {
+    let aCount = s.count - s.replacingOccurrences(of: "a", with: "").count
+    let totalNumberOfA = (n / s.count) * aCount
+    var leftAOccurence = 0
+    let mod = n % s.count
+    if mod > 0{
+        var index = 0
+        for aChar in s{
+            index += 1
+            leftAOccurence += aChar == "a" ? 1 : 0
+            if index == mod{
+                break
+            }
+        }
+    }
+    return totalNumberOfA + leftAOccurence
+}
+
+repeatedString(s: "aba", n: 10)
 
 
+/**
+ * Question Link: https://www.hackerrank.com/challenges/counting-valleys/
+ *
+ * Problem Statement: Gary is an avid hiker. He tracks his hikes meticulously, paying close attention to small details like topography. During his last hike he took exactly n steps. For every step he took, he noted if it was an uphill, U, or a downhill, D step. Gary's hikes start and end at sea level and each step up or down represents a 1 unit change in altitude.
+ *
+ * Input:
+ *  8
+ *  UDDDUDUU
+ *
+ * Output:
+ *   1
+ */
+
+func countingValleys(n: Int, s: String) -> Int {
+    var res = 0
+    var seaLevel = 0
+    var valley: Bool = false
+    for char in s {
+        switch char{
+        case "U":
+            seaLevel+=1
+        case "D":
+            seaLevel-=1
+        default:
+            continue
+        }
+        if seaLevel < 0 && valley == false{
+            res += 1
+            valley = true
+        }else if seaLevel >= 0 && valley == true{
+            valley = false
+        }
+    }
+    return res
+}
+
+countingValleys(n: 8, s: "UDDDUDUU")
 
 
