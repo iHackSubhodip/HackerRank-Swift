@@ -31,8 +31,6 @@ rotLeft(a: [1, 2, 3, 4, 5], d: 4)
 /**
  * Question Link: https://www.hackerrank.com/challenges/new-year-chaos/ [New Year Chaos]
  *
- * Primary idea:
- *
  * Input:
  *  5
  *  2 1 5 3 4
@@ -68,6 +66,35 @@ func minimumBribes(q: [Int]) -> Void {
 
 minimumBribes(q: [2, 5, 1, 3, 4])
 
+
+/**
+ * Question Link: https://www.hackerrank.com/challenges/minimum-swaps-2/ [Minimum Swaps 2]
+ *
+ * Input:
+ *  4
+ *  4 3 1 2
+ *
+ * Output:
+ *  3
+ */
+
+
+func minimumSwaps(arr: [Int]) -> Int {
+    var swapsCount = 0
+    var array = arr
+    
+    for i in 0..<arr.count - 1{
+        while array[i] != i + 1{
+//            print("i is \(i)")
+            array.swapAt(array[i]-1, i)
+//            print(array)
+            swapsCount += 1
+        }
+    }
+    return swapsCount
+}
+
+minimumSwaps(arr: [4, 3, 1, 2])
 
 
 
