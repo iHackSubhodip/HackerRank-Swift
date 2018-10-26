@@ -45,3 +45,45 @@ func checkMagazine(magazine: [String], note: [String]) -> Void {
 checkMagazine(magazine: "give me one grand today night".components(separatedBy: " "), note: "give one grand today".components(separatedBy: " "))
 
 
+/**
+ * Question Link: https://www.hackerrank.com/challenges/two-strings/ [Two Strings]
+ *
+ * Input:
+ *  hello
+ *  world
+ *  hi
+ *  world
+ *
+ * Output:
+ *  Yes
+ *  No
+ */
+
+
+func twoStrings(s1: String, s2: String) -> String {
+    let intersection = Set(s1).intersection(Set(s2))
+    return intersection.count > 0 ? "Yes" : "No"
+}
+
+twoStrings(s1: "hello", s2: "world")
+
+
+/**
+ * Question Link: https://www.hackerrank.com/challenges/sherlock-and-anagrams/ [Sherlock and Anagrams]
+ *
+ * Input:
+ *  abba
+ *
+ * Output:
+ *  4
+ */
+
+
+
+
+
+
+
+
+
+
