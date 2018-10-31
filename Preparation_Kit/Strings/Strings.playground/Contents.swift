@@ -32,6 +32,18 @@ makeAnagram(a: "cde", b: "abc")
  * Question Link: https://www.hackerrank.com/challenges/alternating-characters/ [Alternating Characters]
  */
 
+func alternatingCharacters(s: String) -> Int {
+    
+    var count = 0
+    let characterArray = Array(s)
+    
+    for i in 0..<characterArray.count - 1{
+        count += characterArray[i] == characterArray[i + 1] ? 1 : 0
+    }
+    return count
+}
+
+alternatingCharacters(s: "AABAAB")
 
 
 
