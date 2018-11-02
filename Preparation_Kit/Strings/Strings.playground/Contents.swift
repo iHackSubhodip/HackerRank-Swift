@@ -46,6 +46,66 @@ func alternatingCharacters(s: String) -> Int {
 alternatingCharacters(s: "AABAAB")
 
 
+/**
+ * Question Link: https://www.hackerrank.com/challenges/sherlock-and-valid-string/ [Sherlock and the Valid String]
+ */
+
+
+func isValid(s: String) -> String {
+    
+    var charactedDictionary = [Character: Int]()
+    var frequencyOfcharactedDictionary = [Int: Int]()
+    
+    for aCharacter in s{
+        if let countChar = charactedDictionary[aCharacter]{
+            charactedDictionary[aCharacter] = countChar + 1
+        }else{
+            charactedDictionary[aCharacter] = 1
+        }
+    }
+    print(charactedDictionary)
+    
+    for (_, value) in charactedDictionary{
+        if let countChar = frequencyOfcharactedDictionary[value]{
+            frequencyOfcharactedDictionary[value] = countChar + 1
+        }else{
+            frequencyOfcharactedDictionary[value] = 1
+        }
+    }
+    print(frequencyOfcharactedDictionary)
+    if frequencyOfcharactedDictionary.count <= 1{
+       return "YES"
+    }
+    else if frequencyOfcharactedDictionary.count > 2{
+        return "NO"
+    }else{
+        var canRemove = false
+        let keys = [Int](frequencyOfcharactedDictionary.keys)
+        let maxKey = max(keys[0], keys[1])
+        let minKey = min(keys[0], keys[1])
+        if frequencyOfcharactedDictionary[minKey] == 1{
+            return "YES"
+        }else{
+            if abs(keys[0] - keys[1]) > 1{
+                return "NO"
+            } else{
+                if frequencyOfcharactedDictionary[maxKey] == 1{
+                    return "YES"
+                }else{
+                    return "NO"
+                }
+            }
+        }
+    }
+    
+}
+
+isValid(s: "aaaaabc")
+
+
+
+
+
 
 
 
