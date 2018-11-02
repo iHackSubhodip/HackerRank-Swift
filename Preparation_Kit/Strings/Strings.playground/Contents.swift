@@ -63,7 +63,7 @@ func isValid(s: String) -> String {
             charactedDictionary[aCharacter] = 1
         }
     }
-    print(charactedDictionary)
+    //print(charactedDictionary)
     
     for (_, value) in charactedDictionary{
         if let countChar = frequencyOfcharactedDictionary[value]{
@@ -72,7 +72,7 @@ func isValid(s: String) -> String {
             frequencyOfcharactedDictionary[value] = 1
         }
     }
-    print(frequencyOfcharactedDictionary)
+    //print(frequencyOfcharactedDictionary)
     if frequencyOfcharactedDictionary.count <= 1{
        return "YES"
     }
