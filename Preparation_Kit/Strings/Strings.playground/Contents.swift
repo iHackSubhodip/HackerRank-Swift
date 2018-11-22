@@ -79,7 +79,6 @@ func isValid(s: String) -> String {
     else if frequencyOfcharactedDictionary.count > 2{
         return "NO"
     }else{
-        var canRemove = false
         let keys = [Int](frequencyOfcharactedDictionary.keys)
         let maxKey = max(keys[0], keys[1])
         let minKey = min(keys[0], keys[1])
@@ -104,8 +103,26 @@ isValid(s: "aaaaabc")
 
 
 
+/**
+ * Question Link: https://www.hackerrank.com/challenges/reduced-string/problem [Super Reduced String]
+ */
 
+func superReducedString(s: String) -> String {
+    
+    var characterStack = [Character]()
+    
+    for aValue in s{
+        if characterStack.isEmpty{
+            characterStack.append(aValue)
+        }else if characterStack.last == aValue{
+            characterStack.removeLast()
+        } else{
+            characterStack.append(aValue)
+        }
+    }
+    let reduced = String(Array(characterStack))
+    return characterStack.isEmpty ? "Empty String" : reduced
+}
 
-
-
+superReducedString(s: "aaabccddd")
 
