@@ -126,3 +126,29 @@ func superReducedString(s: String) -> String {
 
 superReducedString(s: "aaabccddd")
 
+
+/**
+ * Question Link: https://www.hackerrank.com/challenges/camelcase/problem [CamelCase]
+ */
+
+func camelcase(s: String) -> Int {
+    var numberOfWords = 1
+    
+    for word in s{
+        if (word >= "A" && word <= "Z"){
+            numberOfWords += 1
+        }
+    }
+    
+    return numberOfWords
+}
+
+
+camelcase(s: "saveChangesInTheEditor")
+
+
+/**
+ * Question Link: https://www.hackerrank.com/challenges/strong-password/problem [Strong Password]
+ */
+
+
